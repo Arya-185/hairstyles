@@ -53,7 +53,7 @@ class _DrawerScreeenState extends State<DrawerScreeen> {
               transform: Matrix4.translationValues(xoffset, yoffset, 0)
                 ..scale(isDrawerOpen ? 0.95 : 1.00)
                 ..rotateZ(isDrawerOpen ? -50 : 0),
-              duration: Duration(milliseconds: 1000),
+              duration: Duration(milliseconds: 2000),
               decoration: BoxDecoration(
                   borderRadius: isDrawerOpen
                       ? BorderRadius.circular(30)

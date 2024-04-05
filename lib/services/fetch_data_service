@@ -1,0 +1,28 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'package:hairstyles/config/api_endpoints.dart';
+
+class FetchDataService {
+
+  static Future fetchData() async {
+    try {
+      final response = await http
+          .get(Uri.parse(ApiEndPoints.allHairstyles));
+
+      var data = jsonDecode(response.body);
+
+      // debugPrint("data:$data");
+      debugPrint("status_code:${response.statusCode}");
+
+      if (response.statusCode == 200) {
+        return data;
+      } else {
+        debugPrint("status_code:${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+}
